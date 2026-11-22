@@ -111,3 +111,6 @@ if (mv) {
   const spin = document.querySelector('[data-spin]');
   spin?.addEventListener('click', () => { mv.autoRotate = !mv.autoRotate; spin.classList.toggle('on', mv.autoRotate); });
 }
+
+// slices hero: always open at the lead panel on small screens
+document.querySelectorAll('.slices').forEach(s => { s.scrollLeft = 0; requestAnimationFrame(() => { s.scrollLeft = 0; }); });
