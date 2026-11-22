@@ -51,29 +51,17 @@ STACK = {"languages": "TypeScript, Python, JavaScript, SQL", "frontend": "React,
          "backend": "FastAPI, Node/Express, PostgreSQL", "ai": "Claude API, MCP, RAG, evals, structured outputs",
          "erp": "Odoo (1.5 yrs), WooCommerce", "ops": "Docker, GitHub Actions, Terraform"}
 
-# ------------------------------------------------------------------ 3D
-REALISTIC = ["camera_01", "vintage_electric_kettle", "mid_century_lounge_chair", "brass_vase_03", "coffeecart_01", "tea_set_01",
-             "antique_ceramic_vase_01", "armchair_01", "potted_plant_04", "croissant"]
-KITS = [("kenney-fantasy-town-sample", "Fantasy town kit", "Modular houses, roofs, market stalls, windmills"),
-        ("kenney-nature-kit-sample", "Nature kit", "Cliffs, rivers, trees and rocks on one tile grid"),
-        ("kaykit-medieval-builder", "Medieval builder", "Hex tiles and buildings for strategy games"),
-        ("kaykit-medieval-variations", "Hex tile variations", "Colour and terrain variants for world maps"),
-        ("kenney-fantasy-town", "Town kit pieces", "Walls, stairs, fences and props, game-ready"),
-        ("kenney-nature-kit", "Nature kit pieces", "Ground, path and river tiles")]
-UIKITS = [("kenney-ui-adventure-sample", "Adventure UI", "Panels, banners, minimap and quest frames"),
-          ("kenney-ui-pack-sample", "Casual UI", "Settings, scores, level and shop screens"),
-          ("kenney-ui-adventure", "Adventure UI elements", "Buttons, sliders, bars and checkboxes"),
-          ("kenney-ui-pack", "UI element sheet", "Five colourways, default and double size")]
-
-# ------------------------------------------------------------------ Design
-WEB = [("vue-dashboard", "VUE · creator dashboard", "Career and booking platform for models, brands and creatives", "wide"),
-       ("vue-profile", "VUE · public profile", "The link in every model's bio: hero, measurements, one-tap booking", ""),
-       ("vue-mobile", "VUE · mobile", "Booking and messages on the go", ""),
-       ("vue-discover", "VUE · discover", "Search and shortlist talent", ""),
-       ("vue-figma", "VUE · design system in Figma", "Tokens, components and screens in one file", "wide"),
-       ("nsa-product", "Security app · identity to UI", "Logo system carried into installer, tray and dashboard", ""),
-       ("coffee-label", "Nosara Coffees · label system", "One label for every origin", "")]
-SOCIAL_POSTS = ["ck-post-1", "ck-post-2", "ck-post-3", "travel-graphics"]
+# ------------------------------------------------------------------ 3D & game
+ROBLOX = {"name": "Revive & Steal a Dino", "url": "https://www.roblox.com/games/108232369899456",
+          "text": "A Roblox tycoon I designed and scripted: dig up bones across five habitats, revive dinosaurs in the lab (some come back "
+                  "mutated: Golden, Lava, Galaxy, Rainbow), earn coins every second, upgrade your base, then sneak into other bases to "
+                  "steal their dinos while keeping yours locked. Trading and daily gifts keep players coming back.",
+          "features": ["Bone digging across Desert, Jungle, Glacier, Volcano and Coral Reef", "Revive lab with mutation rarities",
+                       "Idle income and base upgrades", "Base stealing and locking (PvP)", "Trading and daily rewards"],
+          "shots": ["dino-1", "dino-2", "dino-3"]}
+SHOWROOM = [("camera_01", "Camera_01", "Rangefinder camera"), ("vintage_electric_kettle", "vintage_electric_kettle", "Vintage kettle"),
+            ("mid_century_lounge_chair", "mid_century_lounge_chair", "Lounge chair"), ("brass_vase_03", "brass_vase_03", "Brass vase"),
+            ("coffeecart_01", "CoffeeCart_01", "Coffee cart")]
 
 EXPERIENCE = [
     ("Jul 2026 — now", "UI/UX Designer & Web Developer · Gold Coffee Company",
