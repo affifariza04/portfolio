@@ -8,7 +8,8 @@ LINKS = {
     "LinkedIn": "https://www.linkedin.com/in/affif-ariza-adiwijaya-75b89027a",
     "Freelancer": "https://www.freelancer.com/u/affifarizaa",
 }
-STATS = [("50+", "projects delivered"), ("3 yrs", "design & development"), ("6", "contest wins"), ("1.5 yrs", "Odoo / ERP")]
+STATS = [("50+", "projects delivered"), ("3 yrs", "design & development"), ("1.5 yrs", "Odoo / ERP")]
+LANGUAGES = "Indonesian (native) · English (reading & writing; speaking in progress)"
 
 # ------------------------------------------------------------------ Software & AI
 FEATURED = [
@@ -28,11 +29,7 @@ FEATURED = [
      "code": "https://github.com/affifariza04/odoo-mcp", "tags": ["MCP SDK 2.x", "agents", "guardrails", "ERP"],
      "snippet": [("$", "uv run python examples/demo.py"), ("›", "overdue_invoices(as_of=\"2026-11-22\")"),
                  ("", "INV/2026/0004  PT Sinar Retail    51 days   12,540,000"), ("?", "Create a draft quotation for Hotel Arunika?"),
-                 ("✓", "S00013 · draft · 7,940,000")]},
-    {"slug": "lumen", "title": "lumen-configurator", "kind": "three.js · TypeScript",
-     "text": "Real-time 3D product configurator: procedural lathe modelling, PBR materials, day/night lighting, shareable configs and PNG export.",
-     "img": "assets/3d/lumen-night.webp", "live": "https://affifariza04.github.io/lumen-configurator/",
-     "code": "https://github.com/affifariza04/lumen-configurator", "tags": ["three.js", "WebGL", "Vitest", "CI/CD"]},
+                 ("✓", "S00013 · draft · 7,940,000")]}
 ]
 REPOS = [
     ("storefront", "Next.js 16 + PostgreSQL", "E-commerce with oversell-safe checkout and idempotent payment webhooks"),

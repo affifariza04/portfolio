@@ -7,10 +7,12 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from content import CASES, EMAIL, EXPERIENCE, FEATURED, LINKS, NAME, SITE
+from content import CASES, EMAIL, EXPERIENCE, FEATURED, LANGUAGES, LINKS, NAME, SITE
 from pages import design_body, game_body, home_body, software_body
 
 ROOT = Path(__file__).resolve().parents[1]
+import time
+VER = time.strftime("%Y%m%d%H%M")
 e = html.escape
 FONTS = {
     "home": "family=Unbounded:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600",
@@ -48,13 +50,13 @@ def page(path, theme, title, desc, body, nav_on=None, jsonld=None, image="assets
 <link rel="icon" href="{up}assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?{FONTS[theme if theme in FONTS else 'design']}&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{up}assets/site.css">
+<link rel="stylesheet" href="{up}assets/site.css?v={VER}">
 {ld}
 </head>
 <body class="t-{theme}">
 <header class="nav"><a class="brand" href="{up}">Affif<span>.</span></a><nav class="menu" aria-label="Main">{menu}</nav><a class="hire" href="mailto:{EMAIL}">Hire me</a></header>
-{body.replace("{up}", up)}
-<script src="{up}assets/site.js" defer></script>
+{body.replace("{up}", up).replace(".js\"></script>", f".js?v={VER}\"></script>")}
+<script src="{up}assets/site.js?v={VER}" defer></script>
 </body>
 </html>
 """
@@ -67,7 +69,7 @@ def page(path, theme, title, desc, body, nav_on=None, jsonld=None, image="assets
 def contact(dark=True):
     links = "".join(f'<a class="btn line" href="{u}" target="_blank" rel="noopener">{k}</a>' for k, u in LINKS.items())
     return f"""<section class="contact wrap rv" id="contact"><h2>Let's build something worth showing.</h2>
-<p>Open to remote roles and freelance projects in software &amp; AI, 3D and product design. Based in Jakarta (GMT+7).</p>
+<p>Open to remote roles and freelance projects in software &amp; AI, 3D and product design. Based in Jakarta (GMT+7). Languages: {LANGUAGES}.</p>
 <div class="row"><a class="btn solid" href="mailto:{EMAIL}">{EMAIL}</a>{links}</div>
 <div class="foot"><span>© {date.today().year} {NAME}</span><span>Designed and built by hand. No template.</span></div></section>"""
 

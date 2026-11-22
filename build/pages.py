@@ -2,7 +2,7 @@
 
 from html import escape as e
 
-from content import CASES, EMAIL, EXPERIENCE, FEATURED, LINKS, REPOS, ROBLOX, SHOWROOM, STACK, STATS
+from content import CASES, EMAIL, EXPERIENCE, FEATURED, LANGUAGES, LINKS, REPOS, ROBLOX, SHOWROOM, STACK, STATS
 
 
 def img(src, alt, cls="", lazy=True, w=None, h=None):
@@ -21,19 +21,15 @@ def slices(lead_html, items):
 
 # ------------------------------------------------------------------ home
 HOME_CARDS = [
-    ("code", "software/#docflow", "assets/ai/docflow.webp", "@docflow", "Document AI"),
-    ("game", "3d/#play", "assets/3d/playground.webp", "@robot", "Playable 3D"),
-    ("design", "design/attio/", "assets/case/attio-hero.webp", "@attio", "Product teardown"),
-    ("code", "software/#evalgate", "assets/ai/evalgate.webp", "@evalgate", "LLM evals"),
-    ("game", "3d/#roblox", "assets/roblox/dino-1.webp", "@dino", "Roblox game"),
-    ("design", "design/tally/", "assets/case/tally-hero.webp", "@tally", "UX case study"),
-    ("code", "software/#odoo-mcp", "assets/ai/odoo-mcp.webp", "@odoo-mcp", "AI agents · MCP"),
-    ("game", "3d/#showroom", "assets/3d/camera_01.webp", "@showroom", "Interactive 3D"),
-    ("design", "design/sunsama/", "assets/case/sunsama-hero.webp", "@sunsama", "Product teardown"),
-    ("code", "software/#lumen", "assets/3d/lumen-night.webp", "@lumen", "three.js"),
-    ("game", "3d/#roblox", "assets/roblox/dino-2.webp", "@revive", "Game design"),
-    ("design", "design/dovetail/", "assets/case/dovetail-hero.webp", "@dovetail", "UX case study"),
-    ("design", "design/heptabase/", "assets/case/heptabase-hero.webp", "@heptabase", "Product teardown"),
+    ("code", "software/#docflow", "assets/covers/docflow.webp", "Document AI"),
+    ("game", "3d/#play", "assets/covers/bonedash.webp", "Playable game"),
+    ("design", "design/attio/", "assets/covers/attio.webp", "Product teardown"),
+    ("code", "software/#evalgate", "assets/covers/evalgate.webp", "LLM evals"),
+    ("game", "3d/#roblox", "assets/roblox/dino-1.webp", "Roblox game"),
+    ("design", "design/tally/", "assets/covers/tally.webp", "UX case study"),
+    ("code", "software/#odoo-mcp", "assets/covers/odoo-mcp.webp", "AI agents · MCP"),
+    ("game", "3d/#showroom", "assets/covers/showroom.webp", "Interactive 3D"),
+    ("design", "design/heptabase/", "assets/covers/heptabase.webp", "Product teardown"),
 ]
 
 
@@ -41,17 +37,16 @@ def home_body():
     n = len(HOME_CARDS)
     cards = "".join(
         f'<a class="card" data-c="{c}" href="{{up}}{href}" style="transform:rotateY({i * 360 / n:.3f}deg) translateZ(var(--r))">'
-        f'<span class="face">{img(src, who[1:] + " project preview", lazy=i > 5)}</span><span class="who">{who}</span><span class="cat">{cat}</span></a>'
-        for i, (c, href, src, who, cat) in enumerate(HOME_CARDS))
-    navs = [("code", "software/", "01", "Software & AI"), ("game", "3d/", "02", "3D & Game"), ("design", "design/", "03", "Product Design & UI/UX")]
-    nav = "".join(f'<a data-c="{c}" href="{{up}}{h}"><b>{n}</b>{e(t)} →</a>' for c, h, n, t in navs)
-    stats = " · ".join(f"{a} {b}" for a, b in STATS[:3])
+        f'<span class="face">{img(src, cat + " project cover", lazy=i > 4)}</span><span class="cat">{cat}</span></a>'
+        for i, (c, href, src, cat) in enumerate(HOME_CARDS))
+    stats = " · ".join(f"{a} {b}" for a, b in STATS)
     return f"""<main class="home">
 <div class="aura" aria-hidden="true"></div><div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
-<h1 class="in-up">Welcome to <span>Affif's world.</span></h1>
-<p class="intro in-up" style="animation-delay:.12s">Full-stack &amp; AI engineer, game &amp; 3D creator and product designer from Jakarta. {stats}. Spin the reel or pick a world.</p>
-<div class="cyl-wrap in-up" style="animation-delay:.25s" data-cyl><div class="cyl">{cards}</div><span class="spin-hint">drag to spin</span></div>
-<nav class="home-nav in-up" style="animation-delay:.4s" aria-label="Categories">{nav}</nav>
+<img class="me in-up" src="{{up}}assets/me.webp" alt="Affif Ariza Adiwijaya" width="76" height="76">
+<h1 class="in-up" style="animation-delay:.06s">Welcome to <span>Affif's world.</span></h1>
+<p class="intro in-up" style="animation-delay:.12s">Full-stack &amp; AI engineer, game &amp; 3D creator and product designer from Jakarta. {stats}.</p>
+<p class="lang in-up" style="animation-delay:.18s">{LANGUAGES}</p>
+<div class="cyl-wrap in-up" style="animation-delay:.25s" data-cyl><div class="cyl">{cards}</div></div>
 </main>"""
 
 
@@ -62,8 +57,7 @@ def software_body(contact):
 <div class="row"><a class="btn solid" href="#featured">Explore builds</a><a class="btn line" href="https://github.com/affifariza04" target="_blank" rel="noopener">GitHub ↗</a></div>"""
     items = [("#docflow", "assets/ai/docflow.webp", "docflow", "Document AI", "docflow", "Claude extracts invoices, rules flag mistakes, people approve.", "top left"),
              ("#evalgate", "assets/ai/evalgate.webp", "evalgate", "LLM evals", "evalgate", "A CI gate that blocks prompts that break policy.", "top"),
-             ("#odoo-mcp", "assets/ai/odoo-mcp.webp", "odoo-mcp", "MCP · agents", "odoo-mcp", "Safe, typed AI access to an Odoo ERP.", "center"),
-             ("#lumen", "assets/3d/lumen-night.webp", "lumen", "three.js", "lumen-configurator", "Real-time 3D product configurator.", "center")]
+             ("#odoo-mcp", "assets/ai/odoo-mcp.webp", "odoo-mcp", "MCP · agents", "odoo-mcp", "Safe, typed AI access to an Odoo ERP.", "center")]
     feats = []
     for f in FEATURED:
         visual = (f'<div class="shot">{img(f["img"], f["title"] + " screenshot")}</div>' if f.get("img") else
@@ -89,13 +83,12 @@ def software_body(contact):
 # ------------------------------------------------------------------ 3D & game
 def game_body(contact):
     lead = """<span class="eyebrow"><i></i>3D · Game · Real-time</span><h1>Worlds you can play with.</h1>
-<p>Playable 3D in the browser, a Roblox game I built, and models you can spin, zoom and inspect.</p>
+<p>A Roblox game I built, a playable browser prototype of its core loop, and 3D models you can spin, zoom and inspect.</p>
 <div class="row"><a class="btn solid" href="#play">Play now ↓</a><a class="btn line" href="#roblox">My Roblox game</a></div>"""
-    items = [("#play", "assets/3d/playground.webp", "3D character playground", "Playable", "Character playground", "Drive, dance and emote a 3D robot right here.", "center"),
+    items = [("#play", "assets/covers/bonedash.webp", "Bone Dash", "Playable", "Bone Dash", "Run the island and collect bones in this browser game.", "center"),
              ("#roblox", "assets/roblox/dino-2.webp", ROBLOX["name"], "Roblox", ROBLOX["name"], "Dig bones, revive dinos, steal bases.", "center"),
              ("#roblox", "assets/roblox/dino-3.webp", "Dino base", "Game design", "Base building & mutations", "Idle income, upgrades and rare mutations.", "center"),
-             ("#showroom", "assets/3d/camera_01.webp", "Camera model", "Interactive", "3D showroom", "Spin, zoom and inspect photoreal models.", "center"),
-             ("#lumen", "assets/3d/lumen-day.webp", "Lumen configurator", "three.js", "Product configurator", "Configure a lamp in real time.", "center")]
+             ("#showroom", "assets/covers/showroom.webp", "3D showroom", "Interactive", "3D showroom", "Spin, zoom and inspect photoreal models.", "center")]
     shots = "".join(img(f"assets/roblox/{s}.webp", f"{ROBLOX['name']} screenshot", cls="on" if i == 0 else "", lazy=i > 0)
                     for i, s in enumerate(ROBLOX["shots"]))
     dots = "".join(f'<i{" class=on" if i == 0 else ""}></i>' for i in range(len(ROBLOX["shots"])))
@@ -104,12 +97,15 @@ def game_body(contact):
     show_btns = "".join(f'<button data-src="{{up}}assets/models/{d}/model.gltf"{" class=on" if i == 0 else ""}>{img(f"assets/3d/{d}.webp", n)}'
                         f'<span><b>{e(n)}</b><small>glTF · PBR</small></span></button>' for i, (d, _, n) in enumerate(SHOWROOM))
     return f"""{slices(lead, items)}<main class="wrap">
-<div class="lab-h rv" id="play"><h2>Character <span>playground</span></h2><p>Drag to orbit, pick an animation, play with facial expressions, then drive with <b>W A S D</b> or the arrow keys and collect the orbs.</p></div>
-<div id="playground" class="rv" tabindex="0" data-model="{{up}}assets/models/RobotExpressive.glb" aria-label="Interactive 3D character playground">
-<canvas></canvas><div class="loading">loading 3D…</div>
-<div class="pg-panel"><small>Animations</small><div data-anims></div><small style="margin-top:12px">Expressions</small><div data-faces></div></div>
-<div class="pg-score">orbs <b data-score>0</b></div><div class="pg-hint" data-hint>hover here · W A S D to drive</div>
-<div class="pad"><button data-pad="f" aria-label="forward">▲</button><button data-pad="l" aria-label="left">◀</button><button data-pad="b" aria-label="back">▼</button><button data-pad="r" aria-label="right">▶</button></div>
+<div class="lab-h rv" id="play"><h2>Bone <span>Dash</span></h2><p>A playable browser prototype of my Roblox game's core loop. Run the island, grab glowing bones before time runs out; every 4 bones revives a dino with a random mutation.</p></div>
+<div id="bonedash" class="rv" tabindex="0" data-model="{{up}}assets/models/dino.glb" data-tex="{{up}}assets/models/dino_diffuse.png" aria-label="Bone Dash, a playable 3D mini-game">
+<canvas></canvas>
+<div class="bd-hud"><div><small>time</small><b data-time>60</b></div><div><small>bones</small><b data-bones>0/4</b></div><div><small>revived</small><b data-revived>0</b></div></div>
+<div class="bd-toast" data-toast></div>
+<div class="bd-screen" data-start><h3>Bone Dash</h3><p>Collect bones · every 4 revive a dino · +5 s per revive</p><button class="btn solid" data-play>Play</button>
+<span class="bd-keys"><kbd>W A S D</kbd> move · <kbd>Shift</kbd> sprint</span></div>
+<div class="bd-screen" data-over hidden><h3>Time!</h3><p data-result></p><p class="bd-best">best: <b data-best>0</b> bones</p><button class="btn solid" data-play>Play again</button></div>
+<div class="bd-stick" data-stick aria-hidden="true"><i data-knob></i></div>
 </div>
 <div class="lab-h rv" id="roblox"><h2>My <span>Roblox game</span></h2><p>Designed, built and scripted in Roblox Studio: economy, progression and PvP loops.</p></div>
 <div class="rbx rv"><div class="rbx-shots" data-rotate>{shots}<div class="rbx-dots">{dots}</div></div>
@@ -120,12 +116,10 @@ def game_body(contact):
  shadow-intensity="1.1" shadow-softness=".8" exposure="1" environment-image="neutral" interaction-prompt="auto" touch-action="pan-y" alt="Interactive 3D model"></model-viewer>
 <div class="show-ctl"><button data-env="neutral" class="on">Studio light</button><button data-env="legacy">Soft light</button><button data-spin class="on">Auto-rotate</button></div></div>
 <div class="show-list">{show_btns}</div></div>
-<div class="lab-h rv" id="lumen"><h2>Product <span>configurator</span></h2><p>three.js + TypeScript: procedural lathe modelling, PBR finishes, day/night lighting, shareable configs.</p></div>
-<div class="window rv"><div class="in"><iframe src="https://affifariza04.github.io/lumen-configurator/" title="Lumen 3D lamp configurator" loading="lazy"></iframe><span class="hint">drag to orbit · pick finishes</span></div></div>
 </main>{contact}
 <script type="importmap">{{"imports":{{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}}}</script>
 <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
-<script type="module" src="{{up}}assets/playground.js"></script>"""
+<script type="module" src="{{up}}assets/bonedash.js"></script>"""
 
 
 # ------------------------------------------------------------------ design
