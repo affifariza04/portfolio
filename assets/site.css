@@ -407,3 +407,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .slice.lead{scroll-snap-align:start}
   .slice .cap{left:18px}
 }
+
+/* never show the white canvas behind the page (margin collapse at the top) */
+html{background-color:var(--bg)}
+body{display:flow-root}
