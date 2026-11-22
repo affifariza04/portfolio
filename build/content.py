@@ -8,7 +8,7 @@ LINKS = {
     "LinkedIn": "https://www.linkedin.com/in/affif-ariza-adiwijaya-75b89027a",
     "Freelancer": "https://www.freelancer.com/u/affifarizaa",
 }
-STATS = [("50+", "projects delivered"), ("3 yrs", "design & development"), ("1.5 yrs", "Odoo / ERP")]
+STATS = [("50+", "projects delivered"), ("3 years", "of experience across software, 3D and design")]
 LANGUAGES = "Indonesian (native) · English (reading & writing; speaking in progress)"
 
 # ------------------------------------------------------------------ Software & AI
@@ -29,7 +29,17 @@ FEATURED = [
      "code": "https://github.com/affifariza04/odoo-mcp", "tags": ["MCP SDK 2.x", "agents", "guardrails", "ERP"],
      "snippet": [("$", "uv run python examples/demo.py"), ("›", "overdue_invoices(as_of=\"2026-11-22\")"),
                  ("", "INV/2026/0004  PT Sinar Retail    51 days   12,540,000"), ("?", "Create a draft quotation for Hotel Arunika?"),
-                 ("✓", "S00013 · draft · 7,940,000")]}
+                 ("✓", "S00013 · draft · 7,940,000")]},
+    {"slug": "lens", "title": "lens", "kind": "On-device AI · CLIP · Transformers.js",
+     "text": "Search photos by meaning, entirely in the browser. Image embeddings are computed at build time; the CLIP text encoder runs on "
+             "the visitor's device, ranks 72 photos in tens of milliseconds and re-orders the grid with a FLIP animation. No server, no API key.",
+     "img": "assets/ai/lens.webp", "live": "https://affifariza04.github.io/lens/", "code": "https://github.com/affifariza04/lens",
+     "tags": ["CLIP", "embeddings", "on-device ML", "semantic search"]},
+    {"slug": "whisper-web", "title": "whisper-web", "kind": "On-device AI · Whisper · Web Worker",
+     "text": "Private speech-to-text: record or drop audio and Whisper transcribes it inside the tab (1.3× real-time on CPU), with "
+             "clickable timestamps and .srt export. English and Indonesian. The audio never leaves the device.",
+     "img": "assets/ai/whisper-web.webp", "live": "https://affifariza04.github.io/whisper-web/", "code": "https://github.com/affifariza04/whisper-web",
+     "tags": ["Whisper", "speech-to-text", "WASM", "privacy"]},
 ]
 REPOS = [
     ("storefront", "Next.js 16 + PostgreSQL", "E-commerce with oversell-safe checkout and idempotent payment webhooks"),
@@ -69,7 +79,7 @@ EXPERIENCE = [
      "30+ projects: three.js configurator, permit drawings, retail interiors (2 wins), identities, product videos (2 wins).", "code 3d design"),
     ("6 months", "Social Media Content Intern · Traveloka",
      "Reels and TikToks end to end: concept, script, shoot direction, edit and captions.", "design"),
-    ("1.5 years", "Odoo / ERP", "Configuring and customising Odoo modules and business workflows.", "code"),
+    ("ERP", "Odoo / ERP", "Configuring and customising Odoo modules and business workflows.", "code"),
     ("2024 — now", "B.Sc. Information Systems & Technology · UHAMKA",
      "Web programming, distributed systems, network security; research on AI-supported learning.", "code"),
 ]

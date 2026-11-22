@@ -54,7 +54,7 @@ def page(path, theme, title, desc, body, nav_on=None, jsonld=None, image="assets
 {ld}
 </head>
 <body class="t-{theme}">
-<header class="nav"><a class="brand" href="{up}">Affif<span>.</span></a><nav class="menu" aria-label="Main">{menu}</nav><a class="hire" href="mailto:{EMAIL}">Hire me</a></header>
+<header class="nav"><a class="brand" href="{up}">Affif<span>.</span></a><nav class="menu" aria-label="Main">{menu}</nav><a class="hire" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={EMAIL}&amp;su=Hiring%20inquiry" target="_blank" rel="noopener">Hire me</a></header>
 {body.replace("{up}", up).replace(".js\"></script>", f".js?v={VER}\"></script>")}
 <script src="{up}assets/site.js?v={VER}" defer></script>
 </body>
