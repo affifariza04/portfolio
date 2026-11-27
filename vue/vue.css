@@ -1,0 +1,126 @@
+/* VUE — "Ultraviolet" design system v3
+   Tokens are named for Figma variables 1:1 (color/*, type/*, radius/*, space/*). */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap');
+
+:root{
+  /* color / surface */
+  --ink-0:#08080B;      /* canvas */
+  --ink-1:#0F0F14;      /* surface */
+  --ink-2:#16161D;      /* raised */
+  --ink-3:#1E1E27;      /* hover / input */
+  --line:rgba(255,255,255,.07);
+  --line-2:rgba(255,255,255,.12);
+  /* color / text */
+  --tx-1:#F3F2F7;
+  --tx-2:#A9A7B6;
+  --tx-3:#6E6C7C;
+  /* color / brand: Ultraviolet */
+  --uv:#7C5CFF;
+  --uv-hi:#9C84FF;
+  --uv-ink:#C9BDFF;
+  --uv-08:rgba(124,92,255,.08);
+  --uv-16:rgba(124,92,255,.16);
+  --uv-32:rgba(124,92,255,.32);
+  /* color / semantic — money is its own colour, never the brand colour */
+  --paid:#5EE0A8;   --paid-12:rgba(94,224,168,.12);
+  --hold:#7FB2FF;   --hold-12:rgba(127,178,255,.12);
+  --warn:#FFB75E;   --warn-12:rgba(255,183,94,.12);
+  --risk:#FF6B6B;   --risk-12:rgba(255,107,107,.12);
+  /* type */
+  --sans:'Instrument Sans',system-ui,sans-serif;
+  --serif:'Instrument Serif',Georgia,serif;
+  --mono:'Geist Mono',ui-monospace,monospace;
+  /* radius */
+  --r-xs:6px; --r-sm:10px; --r-md:14px; --r-lg:20px; --r-xl:28px; --r-pill:999px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--ink-0);color:var(--tx-1);font-family:var(--sans);font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* type scale */
+.d1{font-family:var(--serif);font-weight:400;font-size:112px;line-height:.92;letter-spacing:-.025em}
+.d2{font-family:var(--serif);font-weight:400;font-size:72px;line-height:.98;letter-spacing:-.02em}
+.d3{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.02;letter-spacing:-.015em}
+.h1{font-size:32px;font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.h2{font-size:22px;font-weight:600;letter-spacing:-.015em;line-height:1.2}
+.h3{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.body{font-size:14px;color:var(--tx-2)}
+.sm{font-size:12.5px}
+.xs{font-size:11.5px}
+.it{font-family:var(--serif);font-style:italic;font-weight:400}
+.label{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx-3)}
+.num{font-family:var(--sans);font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.mono{font-family:var(--mono)}
+.t2{color:var(--tx-2)} .t3{color:var(--tx-3)} .uvt{color:var(--uv-ink)} .paidt{color:var(--paid)}
+
+/* layout helpers */
+.row{display:flex;align-items:center;gap:10px}
+.col{display:flex;flex-direction:column}
+.sp{justify-content:space-between}
+.grow{flex:1}
+.wrap{flex-wrap:wrap}
+
+/* logo */
+.logo{font-family:var(--sans);font-weight:700;font-size:19px;letter-spacing:.32em;display:flex;align-items:center;gap:2px}
+.logo i{width:7px;height:7px;border-radius:50%;background:var(--uv);display:inline-block;margin-left:2px;box-shadow:0 0 14px var(--uv)}
+
+/* components */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 18px;border-radius:var(--r-pill);font-weight:600;font-size:13.5px;border:1px solid transparent;white-space:nowrap}
+.btn.pri{background:var(--uv);color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 8px 24px -8px var(--uv)}
+.btn.sec{background:var(--tx-1);color:var(--ink-0)}
+.btn.ghost{background:transparent;border-color:var(--line-2);color:var(--tx-1)}
+.btn.quiet{background:var(--ink-3);color:var(--tx-1)}
+.btn.s{height:32px;padding:0 13px;font-size:12.5px}
+.btn.l{height:50px;padding:0 24px;font-size:15px}
+
+.card{background:var(--ink-1);border:1px solid var(--line);border-radius:var(--r-lg)}
+.raised{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r-md)}
+.div{height:1px;background:var(--line)}
+.vdiv{width:1px;align-self:stretch;background:var(--line)}
+
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:var(--r-pill);border:1px solid var(--line-2);font-size:12.5px;color:var(--tx-2);white-space:nowrap}
+.chip.on{background:var(--tx-1);color:var(--ink-0);border-color:var(--tx-1);font-weight:600}
+.chip.uv{background:var(--uv-16);border-color:var(--uv-32);color:var(--uv-ink)}
+
+.tag{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 9px;border-radius:var(--r-pill);font-size:11px;font-weight:600;white-space:nowrap}
+.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.tag.paid{background:var(--paid-12);color:var(--paid)}
+.tag.hold{background:var(--hold-12);color:var(--hold)}
+.tag.warn{background:var(--warn-12);color:var(--warn)}
+.tag.risk{background:var(--risk-12);color:var(--risk)}
+.tag.uv{background:var(--uv-16);color:var(--uv-ink)}
+.tag.mute{background:var(--ink-3);color:var(--tx-2)}
+.tag.solid{background:rgba(8,8,11,.72);color:var(--tx-1);backdrop-filter:blur(8px)}
+.tag.solid::before,.tag.nodot::before{display:none}
+
+.av{width:36px;height:36px;border-radius:50%;object-fit:cover;flex:none;background:var(--ink-3)}
+.av.s{width:28px;height:28px} .av.l{width:48px;height:48px}
+
+.input{height:42px;border-radius:var(--r-sm);background:var(--ink-2);border:1px solid var(--line);display:flex;align-items:center;gap:10px;padding:0 14px;color:var(--tx-3);font-size:13.5px}
+.kbd{font-family:var(--mono);font-size:10.5px;padding:2px 6px;border-radius:5px;border:1px solid var(--line-2);color:var(--tx-3)}
+
+.bar{height:4px;border-radius:4px;background:var(--ink-3);overflow:hidden}
+.bar>b{display:block;height:100%;background:var(--uv);border-radius:4px}
+
+.ph{object-fit:cover;width:100%;height:100%}
+
+/* AI surface: the only place violet glows */
+.ai{position:relative;background:linear-gradient(180deg,rgba(124,92,255,.14),rgba(124,92,255,.03) 60%),var(--ink-1);border:1px solid var(--uv-32);border-radius:var(--r-lg);overflow:hidden}
+.ai::before{content:"";position:absolute;width:260px;height:260px;right:-90px;top:-120px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,255,.45),transparent 70%);pointer-events:none}
+.spark{width:16px;height:16px;flex:none}
+
+/* app shell */
+.app{display:grid;grid-template-columns:248px 1fr;min-height:100vh}
+.side{border-right:1px solid var(--line);padding:22px 16px;display:flex;flex-direction:column;gap:4px;background:var(--ink-0)}
+.nav{display:flex;align-items:center;gap:11px;height:38px;padding:0 12px;border-radius:var(--r-sm);color:var(--tx-2);font-size:13.5px;font-weight:500}
+.nav svg{width:18px;height:18px;flex:none;opacity:.8}
+.nav.on{background:var(--ink-2);color:var(--tx-1);box-shadow:inset 2px 0 0 var(--uv)}
+.nav .cnt{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--tx-2);background:var(--ink-3);padding:1px 7px;border-radius:99px}
+.nav .cnt.uv{background:var(--uv);color:#fff}
+.top{height:68px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 32px}
+.main{min-width:0}
+.content{padding:28px 32px 40px}
+
+svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+svg.i.s{width:15px;height:15px}
